@@ -1,0 +1,6 @@
+units:
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/core/form/StringUtil.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/core/form/StringUtil.java
