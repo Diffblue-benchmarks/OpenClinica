@@ -1,0 +1,1357 @@
+# Tested on Deeptest release 1.12.0
+cbmcArguments:
+  java-generate-no-comments: true
+phases:
+-
+  timeout: 60
+  cbmcArguments:
+    max-nondet-array-length: 10
+    unwind: 1
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 10
+    unwind: 1
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 20
+    unwind: 2
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 20
+    unwind: 2
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 4
+    load-containing-class-only: true
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 50
+    max-nondet-string-length: 50
+    unwind: 4
+    load-containing-class-only: true
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 130
+    max-nondet-string-length: 110
+    unwind: 10
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 300
+    max-nondet-string-length: 100
+    unwind: 10
+units:
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/urlRewrite/UrlRewriteServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/urlRewrite/UrlRewriteServlet.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/web/crfdata/ImportCRFDataService.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/web/crfdata/ImportCRFDataService.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/admin/CRFBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/admin/CRFBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/core/DataEntryStage.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/core/DataEntryStage.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/core/ItemDataType.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/core/ItemDataType.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/core/NullValue.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/core/NullValue.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/core/ResponseType.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/core/ResponseType.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/core/Status.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/core/Status.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/core/SubjectEventStatus.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/core/SubjectEventStatus.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/login/UserAccountBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/login/UserAccountBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/managestudy/EventDefinitionCRFBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/managestudy/EventDefinitionCRFBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/managestudy/StudyBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/managestudy/StudyBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/managestudy/StudyEventBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/managestudy/StudyEventBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/managestudy/StudyEventDefinitionBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/managestudy/StudyEventDefinitionBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/managestudy/StudySubjectBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/managestudy/StudySubjectBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/CRFVersionBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/CRFVersionBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/DisplayItemBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/DisplayItemBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/DisplayItemBeanWrapper.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/DisplayItemBeanWrapper.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/EventCRFBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/EventCRFBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/FormLayoutBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/FormLayoutBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/ItemBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/ItemBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/ItemDataBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/ItemDataBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/ItemFormMetadataBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/ItemFormMetadataBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/ItemGroupBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/ItemGroupBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/ResponseOptionBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/ResponseOptionBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/crfdata/FormDataBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/crfdata/FormDataBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/crfdata/ImportItemDataBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/crfdata/ImportItemDataBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/crfdata/ImportItemGroupDataBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/crfdata/ImportItemGroupDataBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/crfdata/ODMContainer.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/crfdata/ODMContainer.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/crfdata/StudyEventDataBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/crfdata/StudyEventDataBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/crfdata/SubjectDataBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/crfdata/SubjectDataBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/crfdata/SummaryStatsBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/crfdata/SummaryStatsBean.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/crfdata/UpsertOnBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/crfdata/UpsertOnBean.java
+    # Child of ImportCRFDataService.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/form/DiscrepancyValidator.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/form/DiscrepancyValidator.java
+    # Child of ImportCRFDataService.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/form/FormDiscrepancyNotes.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/form/FormDiscrepancyNotes.java
+    # Child of ImportCRFDataService.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/form/Validator.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/form/Validator.java
+    # Child of ImportCRFDataService.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/submit/ImportCRFInfoContainer.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/submit/ImportCRFInfoContainer.java
+    # Child of ImportCRFDataService.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/controller/dto/CommonEventContainerDTO.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/controller/dto/CommonEventContainerDTO.java
+    # Child of ImportCRFDataService.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/controller/helper/RestfulServiceHelper.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/controller/helper/RestfulServiceHelper.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/admin/CRFDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/admin/CRFDAO.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/core/CoreResources.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/core/CoreResources.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/hibernate/StudyDao.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/hibernate/StudyDao.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/hibernate/StudyEventDao.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/hibernate/StudyEventDao.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/hibernate/UserAccountDao.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/hibernate/UserAccountDao.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/managestudy/EventDefinitionCRFDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/managestudy/EventDefinitionCRFDAO.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/managestudy/StudyDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/managestudy/StudyDAO.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/managestudy/StudyEventDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/managestudy/StudyEventDAO.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/managestudy/StudyEventDefinitionDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/managestudy/StudyEventDefinitionDAO.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/managestudy/StudySubjectDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/managestudy/StudySubjectDAO.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/submit/CRFVersionDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/submit/CRFVersionDAO.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/submit/EventCRFDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/submit/EventCRFDAO.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/submit/FormLayoutDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/submit/FormLayoutDAO.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/submit/ItemDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/submit/ItemDAO.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/submit/ItemDataDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/submit/ItemDataDAO.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/submit/ItemFormMetadataDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/submit/ItemFormMetadataDAO.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/submit/ItemGroupDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/submit/ItemGroupDAO.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/user/UserAccount.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/user/UserAccount.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/exception/OpenClinicaException.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/exception/OpenClinicaException.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/i18n/util/ResourceBundleProvider.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/i18n/util/ResourceBundleProvider.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/importdata/ImportDataHelper.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/importdata/ImportDataHelper.java
+    # Child of ImportCRFDataService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/importdata/PipeDelimitedDataHelper.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/importdata/PipeDelimitedDataHelper.java
+    # Child of ImportCRFDataService.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/service/ViewStudySubjectService.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/service/ViewStudySubjectService.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/extract/odm/ClinicalDataReportBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/extract/odm/ClinicalDataReportBean.java
+    # Child of ClinicalDataReportBean.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/core/Role.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/core/Role.java
+    # Child of ClinicalDataReportBean.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/login/StudyUserRoleBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/login/StudyUserRoleBean.java
+    # Child of ClinicalDataReportBean.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/hibernate/EventDefinitionCrfDao.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/hibernate/EventDefinitionCrfDao.java
+    # Child of ClinicalDataReportBean.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/hibernate/EventDefinitionCrfPermissionTagDao.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/hibernate/EventDefinitionCrfPermissionTagDao.java
+    # Child of ClinicalDataReportBean.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/EventCRFStatus.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/EventCRFStatus.java
+    # Child of ClinicalDataReportBean.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/Status.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/Status.java
+    # Child of ClinicalDataReportBean.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/PermissionService.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/PermissionService.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/admin/SpreadSheetTableRepeating.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/admin/SpreadSheetTableRepeating.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/admin/NewCRFBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/admin/NewCRFBean.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/oid/MeasurementUnitOidGenerator.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/oid/MeasurementUnitOidGenerator.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/ItemGroupMetadataBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/ItemGroupMetadataBean.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/ResponseSetBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/ResponseSetBean.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/form/spreadsheet/OnChangeSheetValidationCell.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/form/spreadsheet/OnChangeSheetValidationCell.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/form/spreadsheet/OnChangeSheetValidationType.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/form/spreadsheet/OnChangeSheetValidationType.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/form/spreadsheet/OnChangeSheetValidator.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/form/spreadsheet/OnChangeSheetValidator.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/form/spreadsheet/SheetCell.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/form/spreadsheet/SheetCell.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/form/spreadsheet/SheetValidationContainer.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/form/spreadsheet/SheetValidationContainer.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/form/spreadsheet/SheetValidationType.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/form/spreadsheet/SheetValidationType.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/core/form/StringUtil.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/core/form/StringUtil.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/core/util/CrfTemplateColumnNameEnum.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/core/util/CrfTemplateColumnNameEnum.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/hibernate/MeasurementUnitDao.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/hibernate/MeasurementUnitDao.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/exception/CRFReadingException.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/exception/CRFReadingException.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/score/ScoreValidator.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/score/ScoreValidator.java
+    # Child of SpreadSheetTableRepeating.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/web/SQLInitServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/web/SQLInitServlet.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/admin/SpreadSheetTableClassic.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/admin/SpreadSheetTableClassic.java
+    # Child of SpreadSheetTableClassic.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/core/Utils.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/core/Utils.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/web/crfdata/ImportCRFDataService.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/web/crfdata/ImportCRFDataService.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/usageStats/LogUsageStatsService.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/usageStats/LogUsageStatsService.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/importdata/TextToODMHelper.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/importdata/TextToODMHelper.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/rulerunner/DataEntryRuleRunner.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/rulerunner/DataEntryRuleRunner.java
+    # Child of DataEntryRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/managestudy/DiscrepancyNoteBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/managestudy/DiscrepancyNoteBean.java
+    # Child of DataEntryRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/RuleBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/RuleBean.java
+    # Child of DataEntryRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/RuleSetBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/RuleSetBean.java
+    # Child of DataEntryRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/RuleSetRuleBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/RuleSetRuleBean.java
+    # Child of DataEntryRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/action/ActionProcessor.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/action/ActionProcessor.java
+    # Child of DataEntryRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/action/ActionProcessorFacade.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/action/ActionProcessorFacade.java
+    # Child of DataEntryRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/action/ActionType.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/action/ActionType.java
+    # Child of DataEntryRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/action/RuleActionBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/action/RuleActionBean.java
+    # Child of DataEntryRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/action/RuleActionRunLogBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/action/RuleActionRunLogBean.java
+    # Child of DataEntryRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/action/ShowActionBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/action/ShowActionBean.java
+    # Child of DataEntryRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/expression/ExpressionBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/expression/ExpressionBean.java
+    # Child of DataEntryRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/expression/ExpressionObjectWrapper.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/expression/ExpressionObjectWrapper.java
+    # Child of DataEntryRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/exception/OpenClinicaSystemException.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/exception/OpenClinicaSystemException.java
+    # Child of DataEntryRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/expressionTree/OpenClinicaExpressionParser.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/expressionTree/OpenClinicaExpressionParser.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/admin/RemoveStudyServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/admin/RemoveStudyServlet.java
+    # Child of RemoveStudyServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/extract/DatasetBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/extract/DatasetBean.java
+    # Child of RemoveStudyServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/managestudy/StudyGroupClassBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/managestudy/StudyGroupClassBean.java
+    # Child of RemoveStudyServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/SubjectGroupMapBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/SubjectGroupMapBean.java
+    # Child of RemoveStudyServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/core/SecureController.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/core/SecureController.java
+    # Child of RemoveStudyServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/form/FormProcessor.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/form/FormProcessor.java
+    # Child of RemoveStudyServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/extract/DatasetDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/extract/DatasetDAO.java
+    # Child of RemoveStudyServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/login/UserAccountDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/login/UserAccountDAO.java
+    # Child of RemoveStudyServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/managestudy/StudyGroupClassDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/managestudy/StudyGroupClassDAO.java
+    # Child of RemoveStudyServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/managestudy/StudyGroupDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/managestudy/StudyGroupDAO.java
+    # Child of RemoveStudyServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/submit/SubjectGroupMapDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/submit/SubjectGroupMapDAO.java
+    # Child of RemoveStudyServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/view/Page.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/view/Page.java
+    # Child of RemoveStudyServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/web/InsufficientPermissionException.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/web/InsufficientPermissionException.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/managestudy/RemoveSiteServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/managestudy/RemoveSiteServlet.java
+    # Child of RemoveSiteServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/managestudy/StudyGroupBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/managestudy/StudyGroupBean.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/admin/RestoreStudyServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/admin/RestoreStudyServlet.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/managestudy/RestoreSiteServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/managestudy/RestoreSiteServlet.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/managestudy/ExportExcelStudySubjectAuditLogServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/managestudy/ExportExcelStudySubjectAuditLogServlet.java
+    # Child of ExportExcelStudySubjectAuditLogServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/admin/AuditBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/admin/AuditBean.java
+    # Child of ExportExcelStudySubjectAuditLogServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/admin/DeletedEventCRFBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/admin/DeletedEventCRFBean.java
+    # Child of ExportExcelStudySubjectAuditLogServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/SubjectBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/SubjectBean.java
+    # Child of ExportExcelStudySubjectAuditLogServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/SpringServletAccess.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/SpringServletAccess.java
+    # Child of ExportExcelStudySubjectAuditLogServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/submit/SubmitDataServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/submit/SubmitDataServlet.java
+    # Child of ExportExcelStudySubjectAuditLogServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/admin/AuditDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/admin/AuditDAO.java
+    # Child of ExportExcelStudySubjectAuditLogServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/submit/SubjectDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/submit/SubjectDAO.java
+    # Child of ExportExcelStudySubjectAuditLogServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/datamap/EventDefinitionCrfPermissionTag.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/datamap/EventDefinitionCrfPermissionTag.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/rulerunner/ImportDataRuleRunner.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/rulerunner/ImportDataRuleRunner.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/rulerunner/RuleSetBulkRuleRunner.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/rulerunner/RuleSetBulkRuleRunner.java
+    # Child of RuleSetBulkRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/RuleSetBasedViewContainer.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/RuleSetBasedViewContainer.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/log/LogFilterOther.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/log/LogFilterOther.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/managestudy/UpdateSubStudyServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/managestudy/UpdateSubStudyServlet.java
+    # Child of UpdateSubStudyServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/service/StudyParamsConfig.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/service/StudyParamsConfig.java
+    # Child of UpdateSubStudyServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/service/StudyParameterValueDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/service/StudyParameterValueDAO.java
+    # Child of UpdateSubStudyServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/SourceDataVerification.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/SourceDataVerification.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/web/filter/ApiSecurityFilter.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/web/filter/ApiSecurityFilter.java
+    # Child of ApiSecurityFilter.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/core/UserType.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/core/UserType.java
+    # Child of ApiSecurityFilter.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/OCUserDTO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/OCUserDTO.java
+    # Child of ApiSecurityFilter.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/auth/TokenService.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/auth/TokenService.java
+    # Child of ApiSecurityFilter.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/user/CreateUserCoreService.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/user/CreateUserCoreService.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/submit/ImportCRFInfoContainer.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/submit/ImportCRFInfoContainer.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/importdata/PipeDelimitedDataHelper.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/importdata/PipeDelimitedDataHelper.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/managestudy/RemoveStudyEventServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/managestudy/RemoveStudyEventServlet.java
+    # Child of RemoveStudyEventServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/core/ResolutionStatus.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/core/ResolutionStatus.java
+    # Child of RemoveStudyEventServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/DisplayEventCRFBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/DisplayEventCRFBean.java
+    # Child of RemoveStudyEventServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/core/EmailEngine.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/core/EmailEngine.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/managestudy/CreateSubStudyServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/managestudy/CreateSubStudyServlet.java
+    # Child of CreateSubStudyServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/core/NumericComparisonOperator.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/core/NumericComparisonOperator.java
+    # Child of CreateSubStudyServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/service/StudyParameterValueBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/service/StudyParameterValueBean.java
+    # Child of CreateSubStudyServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/managestudy/EventDefinitionCrfTagService.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/managestudy/EventDefinitionCrfTagService.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/rulerunner/ImportDataRuleRunnerContainer.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/rulerunner/ImportDataRuleRunnerContainer.java
+    # Child of ImportDataRuleRunnerContainer.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/submit/ItemGroupMetadataDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/submit/ItemGroupMetadataDAO.java
+    # Child of ImportDataRuleRunnerContainer.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/rule/RuleSetServiceInterface.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/rule/RuleSetServiceInterface.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/submit/ImportCRFInfoContainer.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/submit/ImportCRFInfoContainer.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/controller/helper/RestfulServiceHelper.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/controller/helper/RestfulServiceHelper.java
+    # Child of RestfulServiceHelper.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/submit/ImportCRFInfoSummary.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/submit/ImportCRFInfoSummary.java
+    # Child of RestfulServiceHelper.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/UserStatus.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/UserStatus.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/log/LogFilterFacilityUSER.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/log/LogFilterFacilityUSER.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/log/LogFilterBase.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/log/LogFilterBase.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/crfdata/ResponseSetService.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/crfdata/ResponseSetService.java
+    # Child of ResponseSetService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/hibernate/ResponseSetDao.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/hibernate/ResponseSetDao.java
+    # Child of ResponseSetService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/datamap/CrfVersion.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/datamap/CrfVersion.java
+    # Child of ResponseSetService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/datamap/ResponseSet.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/datamap/ResponseSet.java
+    # Child of ResponseSetService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/datamap/ResponseType.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/datamap/ResponseType.java
+    # Child of ResponseSetService.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/xform/XformItem.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/xform/XformItem.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/controller/ODMClinicalDataController.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/controller/ODMClinicalDataController.java
+    # Child of ODMClinicalDataController.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/web/restful/ODMClinicaDataResource.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/web/restful/ODMClinicaDataResource.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/web/job/TriggerService.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/web/job/TriggerService.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/rulerunner/CrfBulkRuleRunner.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/rulerunner/CrfBulkRuleRunner.java
+    # Child of CrfBulkRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/RuleBulkExecuteContainer.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/RuleBulkExecuteContainer.java
+    # Child of CrfBulkRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/RuleBulkExecuteContainerTwo.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/RuleBulkExecuteContainerTwo.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/submit/VerifyImportedCRFDataServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/submit/VerifyImportedCRFDataServlet.java
+    # Child of VerifyImportedCRFDataServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/core/DiscrepancyNoteType.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/core/DiscrepancyNoteType.java
+    # Child of VerifyImportedCRFDataServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/managestudy/DiscrepancyNoteDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/managestudy/DiscrepancyNoteDAO.java
+    # Child of VerifyImportedCRFDataServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/i18n/core/LocaleResolver.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/i18n/core/LocaleResolver.java
+    # Child of VerifyImportedCRFDataServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/rulerunner/ExecutionMode.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/rulerunner/ExecutionMode.java
+    # Child of VerifyImportedCRFDataServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/rulerunner/ImportDataRuleRunnerContainer.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/rulerunner/ImportDataRuleRunnerContainer.java
+    # Child of VerifyImportedCRFDataServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/web/job/CrfBusinessLogicHelper.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/web/job/CrfBusinessLogicHelper.java
+    # Child of VerifyImportedCRFDataServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/web/job/ImportSpringJob.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/web/job/ImportSpringJob.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/score/ScoreCalculator.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/score/ScoreCalculator.java
+    # Child of ScoreCalculator.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/core/SessionManager.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/core/SessionManager.java
+    # Child of ScoreCalculator.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/exception/ScoreException.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/exception/ScoreException.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/admin/RemoveSubjectServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/admin/RemoveSubjectServlet.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/admin/CreateCRFVersionServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/admin/CreateCRFVersionServlet.java
+    # Child of CreateCRFVersionServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/rule/FileUploadHelper.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/rule/FileUploadHelper.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/submit/CreateNewStudyEventServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/submit/CreateNewStudyEventServlet.java
+    # Child of CreateNewStudyEventServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/hibernate/RuleSetDao.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/hibernate/RuleSetDao.java
+    # Child of CreateNewStudyEventServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/rule/RuleSetService.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/rule/RuleSetService.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/admin/RestoreSubjectServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/admin/RestoreSubjectServlet.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/managestudy/ViewNoteServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/managestudy/ViewNoteServlet.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/submit/DataEntryServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/submit/DataEntryServlet.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/core/AuditableEntityBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/core/AuditableEntityBean.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/core/EntityBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/core/EntityBean.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/DisplayItemGroupBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/DisplayItemGroupBean.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/DisplayItemWithGroupBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/DisplayItemWithGroupBean.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/DisplaySectionBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/DisplaySectionBean.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/DisplayTableOfContentsBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/DisplayTableOfContentsBean.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/SCDItemDisplayInfo.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/SCDItemDisplayInfo.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/submit/SectionBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/submit/SectionBean.java
+    # Child of DataEntryServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/core/CoreSecureController.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/core/CoreSecureController.java
+    # Child of DataEntryServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/form/RuleValidator.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/form/RuleValidator.java
+    # Child of DataEntryServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/form/ScoreItemValidator.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/form/ScoreItemValidator.java
+    # Child of DataEntryServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/form/Validation.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/form/Validation.java
+    # Child of DataEntryServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/managestudy/ViewNotesServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/managestudy/ViewNotesServlet.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/core/SecurityManager.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/core/SecurityManager.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/hibernate/DynamicsItemFormMetadataDao.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/hibernate/DynamicsItemFormMetadataDao.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/submit/SectionDAO.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/submit/SectionDAO.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/crfdata/DynamicsItemFormMetadataBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/crfdata/DynamicsItemFormMetadataBean.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/expressionTree/ExpressionTreeHelper.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/expressionTree/ExpressionTreeHelper.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/score/ScoreCalculator.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/score/ScoreCalculator.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/DiscrepancyNoteThread.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/DiscrepancyNoteThread.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/DiscrepancyNoteUtil.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/DiscrepancyNoteUtil.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/crfdata/DynamicsMetadataService.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/crfdata/DynamicsMetadataService.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/crfdata/InstantOnChangeService.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/crfdata/InstantOnChangeService.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/crfdata/SimpleConditionalDisplayService.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/crfdata/SimpleConditionalDisplayService.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/crfdata/front/InstantOnChangeFrontStrGroup.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/crfdata/front/InstantOnChangeFrontStrGroup.java
+    # Child of DataEntryServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/crfdata/front/InstantOnChangeFrontStrParcel.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/crfdata/front/InstantOnChangeFrontStrParcel.java
+    # Child of DataEntryServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/view/form/DataEntryInputGenerator.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/view/form/DataEntryInputGenerator.java
+    # Child of DataEntryServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/view/form/FormBeanUtil.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/view/form/FormBeanUtil.java
+    # Child of DataEntryServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/web/InconsistentStateException.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/web/InconsistentStateException.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/admin/SetUserRoleServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/admin/SetUserRoleServlet.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/rulerunner/BeanPropertyRuleRunner.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/rulerunner/BeanPropertyRuleRunner.java
+    # Child of BeanPropertyRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/hibernate/StudyEventDefinitionDao.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/hibernate/StudyEventDefinitionDao.java
+    # Child of BeanPropertyRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/datamap/StudyEvent.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/datamap/StudyEvent.java
+    # Child of BeanPropertyRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/action/EventActionBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/action/EventActionBean.java
+    # Child of BeanPropertyRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/action/NotificationActionBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/action/NotificationActionBean.java
+    # Child of BeanPropertyRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/action/NotificationActionProcessor.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/action/NotificationActionProcessor.java
+    # Child of BeanPropertyRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/rule/expression/ExpressionBeanObjectWrapper.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/rule/expression/ExpressionBeanObjectWrapper.java
+    # Child of BeanPropertyRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/patterns/ocobserver/StudyEventChangeDetails.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/patterns/ocobserver/StudyEventChangeDetails.java
+    # Child of BeanPropertyRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/NotificationService.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/NotificationService.java
+    # Child of BeanPropertyRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/crfdata/BeanPropertyService.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/crfdata/BeanPropertyService.java
+    # Child of BeanPropertyRuleRunner.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/rule/expression/ExpressionService.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/rule/expression/ExpressionService.java
+  - target:
+    - dir: core/target/classes
+      file: org/akaza/openclinica/logic/score/Parser.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/logic/score/Parser.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/admin/RestoreCRFServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/admin/RestoreCRFServlet.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/admin/RemoveCRFServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/admin/RemoveCRFServlet.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/managestudy/RemoveStudySubjectServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/managestudy/RemoveStudySubjectServlet.java
+    # Child of RemoveStudySubjectServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/bean/managestudy/DisplayStudyEventBean.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/bean/managestudy/DisplayStudyEventBean.java
+    # Child of RemoveStudySubjectServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/datamap/StudySubject.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/datamap/StudySubject.java
+    # Child of RemoveStudySubjectServlet.class
+    - dir: web/target/classes
+      file: org/akaza/openclinica/service/UserService.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/service/UserService.java
+    # Child of RemoveStudySubjectServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/UserType.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/UserType.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/managestudy/RestoreEventDefinitionServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/managestudy/RestoreEventDefinitionServlet.java
+    # Child of RestoreEventDefinitionServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/pmanage/Authorization.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/pmanage/Authorization.java
+    # Child of RestoreEventDefinitionServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/service/pmanage/ParticipantPortalRegistrar.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/service/pmanage/ParticipantPortalRegistrar.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/web/job/ImportSpringJob.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/web/job/ImportSpringJob.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/web/job/TriggerService.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/web/job/TriggerService.java
+  - target:
+    - dir: web/target/classes
+      file: org/akaza/openclinica/control/managestudy/RemoveEventCRFServlet.class
+      sourceDir: web/src/main/java
+      sourceFile: org/akaza/openclinica/control/managestudy/RemoveEventCRFServlet.java
+    # Child of RemoveEventCRFServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/core/LockInfo.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/core/LockInfo.java
+    # Child of RemoveEventCRFServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/dao/hibernate/EventCrfDao.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/dao/hibernate/EventCrfDao.java
+    # Child of RemoveEventCRFServlet.class
+    - dir: core/target/classes
+      file: org/akaza/openclinica/domain/datamap/EventCrf.class
+      sourceDir: core/src/main/java
+      sourceFile: org/akaza/openclinica/domain/datamap/EventCrf.java
