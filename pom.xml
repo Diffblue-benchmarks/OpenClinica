@@ -868,9 +868,9 @@
         </dependency>
 
 
-    </dependencies>
+    <dependency><groupId>org.jacoco</groupId><artifactId>org.jacoco.agent</artifactId><version>0.8.5</version><scope>test</scope><classifier>runtime</classifier></dependency></dependencies>
 
-    <!-- These dependencies are used by _all_ child projects -->
+    
     <build>
         <plugins>
             <plugin>
@@ -899,6 +899,7 @@
                 <version>2.19.1</version>
                 <configuration>
                     <skipTests>${skipTests}</skipTests>
+<argLine>-Djacoco-agent.destfile=${project.build.directory}/jacoco.exec</argLine>
                 </configuration>
             </plugin>
             <plugin>
@@ -1004,7 +1005,7 @@
                     </webResources>
                 </configuration>
             </plugin>
-        </plugins>
+        <plugin><groupId>org.jacoco</groupId><artifactId>jacoco-maven-plugin</artifactId><version>0.8.5</version><executions><execution><id>instrument</id><phase>process-test-classes</phase><goals><goal>instrument</goal></goals></execution><execution><id>restore-instrumented-classes</id><phase>test</phase><goals><goal>restore-instrumented-classes</goal></goals></execution></executions></plugin></plugins>
 
 
         <resources>
