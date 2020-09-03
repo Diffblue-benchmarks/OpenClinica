@@ -35,8 +35,50 @@
         <fasterxml.jackson.version>2.10.0</fasterxml.jackson.version>
         <version.keycloak>7.0.0</version.keycloak>
         <hibernate.version>5.2.0.Final</hibernate.version>
+        <currentTestSourceDirectory>src/test/java</currentTestSourceDirectory>
     </properties>
     <profiles>
+        <profile>
+      <id>Dcover</id>
+      <properties>
+        <currentTestSourceDirectory>src/dcover/java</currentTestSourceDirectory>
+      </properties>
+    </profile>
+    <profile>
+      <id>Jcover</id>
+      <properties>
+        <currentTestSourceDirectory>src/jcover/java</currentTestSourceDirectory>
+      </properties>
+    </profile>
+    <profile>
+      <id>Combined</id>
+      <properties>
+        <currentTestSourceDirectory>src/jcover/java</currentTestSourceDirectory>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>1.4</version>
+            <executions>
+              <execution>
+                <id>add-test-source</id>
+                <phase>generate-test-sources</phase>
+                <goals>
+                  <goal>add-test-source</goal>
+                </goals>
+                <configuration>
+                  <sources>
+                    <source>src/dcover/java/</source>
+                  </sources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
         <profile>
             <id>walkme-design</id>
             <properties>
@@ -995,6 +1037,7 @@
                 </includes>
             </testResource>
         </testResources>
+<testSourceDirectory>${currentTestSourceDirectory}</testSourceDirectory>
     </build>
     <scm>
         <connection>scm:git:${git.url}</connection>
